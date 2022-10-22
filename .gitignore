@@ -1,0 +1,8 @@
+save
+ui_window.py
+victims/
+TODO
+dist/
+build/
+*.spec
+*.zip
