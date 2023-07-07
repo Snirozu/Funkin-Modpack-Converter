@@ -153,7 +153,7 @@ class Window(QDialog):
                         diffString = ""
                         i = 0
                         for d in diffics:
-                            diffString += d
+                            diffString += str(d).capitalize()
                             if (i != len(diffics) - 1):
                                 diffString += ", "
                             i+=1
