@@ -18,4 +18,4 @@ morshu.copyfile("icon.ico", "dist/icon.ico")
 if os.path.exists("dist/ui_window.py"):
     os.remove("dist/ui_window.py")
 if len(sys.argv) > 1 and sys.argv[1] == "package":
-    morshu.make_archive(NAME + "-" + VERSION, 'zip', "dist/")
+    morshu.make_archive(NAME.replace(" ", "-"), 'zip', "dist/")

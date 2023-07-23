@@ -5,3 +5,4 @@ TODO
 dist/
 build/
 *.zip
+*.spec
