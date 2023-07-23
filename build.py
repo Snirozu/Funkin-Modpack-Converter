@@ -17,5 +17,5 @@ morshu.copyfile("window.ui", "dist/window.ui")
 morshu.copyfile("icon.ico", "dist/icon.ico")
 if os.path.exists("dist/ui_window.py"):
     os.remove("dist/ui_window.py")
-if sys.argv[1] == "package":
+if len(sys.argv) > 1 and sys.argv[1] == "package":
     morshu.make_archive(NAME + "-" + VERSION, 'zip', "dist/")
