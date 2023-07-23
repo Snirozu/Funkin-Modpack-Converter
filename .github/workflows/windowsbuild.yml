@@ -2,7 +2,8 @@ name: Package Windows Application
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
