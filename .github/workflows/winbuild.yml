@@ -1,4 +1,4 @@
-name: Package Linux Application
+name: Package Windows Application
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -24,5 +24,5 @@ jobs:
         
       - uses: actions/upload-artifact@v3
         with:
-          name: Linux Build
+          name: Windows Build
           path: dist/
