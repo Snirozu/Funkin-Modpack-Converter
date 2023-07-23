@@ -1,4 +1,4 @@
-name: Package Windows Application
+name: Package Linux Application
 
 on:
   push:
