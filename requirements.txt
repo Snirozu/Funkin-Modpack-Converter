@@ -1,7 +1,3 @@
 PyQt6
 py-appdata
-os
-shutil
-json
-traceback
 pyinstaller
