@@ -4,5 +4,4 @@ victims/
 TODO
 dist/
 build/
-*.spec
 *.zip
