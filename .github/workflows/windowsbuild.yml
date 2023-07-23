@@ -3,21 +3,21 @@ name: Package Windows Application
 on:
   push:
     branches: [ master ]
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Package Application
-      uses: JackMcKew/pyinstaller-action-windows@main
-      with:
-        path: .
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Funkin-ModPackPorter
-        path: dist/windows
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.5'
+          cache: 'pip'
+  
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Build with PyInstaller
+        run: python build.py
