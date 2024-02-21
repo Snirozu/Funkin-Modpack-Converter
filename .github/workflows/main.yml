@@ -1,50 +1,42 @@
-name: Builds
+name: Wails build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+
+env:
+  # Necessary for most environments as build failure can occur due to OOM issues
+  NODE_OPTIONS: "--max-old-space-size=4096"
 
 jobs:
-  Linux_Build:
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+    # Failure in one platform build won't impact the others
+      fail-fast: false
+      matrix:
+        build:
+          - name: 'App'
+            platform:  'linux/amd64'
+            os: 'ubuntu-latest'
+          - name: 'App'
+            platform:  'windows/amd64'
+            os: 'windows-latest'
+          - name: 'App'
+            platform:  'darwin/universal'
+            os: 'macos-latest'
 
+    runs-on: ${{ matrix.build.os }}
     steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-python@v4
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          python-version: '3.10.5'
-          cache: 'pip'
-  
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      - name: Build with PyInstaller
-        run: python build.py
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Linux Build
-          path: dist/
+          submodules: recursive
 
-  Windows_Build:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-python@v4
+      - name: Build wails
+        uses: dAppServer/wails-build-action@v2.2
+        id: build
         with:
-          python-version: '3.10.5'
-          cache: 'pip'
-  
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      - name: Build with PyInstaller
-        run: python build.py
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Windows Build
-          path: dist/
+          build-name: ${{ matrix.build.name }}
+          build-platform: ${{ matrix.build.platform }}
+          package: true
+          go-version: '1.20'

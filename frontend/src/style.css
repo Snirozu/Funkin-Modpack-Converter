@@ -1,0 +1,85 @@
+html {
+    background-image: url('assets/images/background.png');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-blend-mode: difference;
+    background-color: rgba(27, 38, 54, 1);
+
+    text-align: center;
+    color: white;
+    line-height: 12px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.719);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    text-shadow: 0px 0px 0px black, 0 2px black, 0 0 2px black;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto-Bold", -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0px 0px 0px black, 0 3px black, 0 0 10px black;
+}
+
+.input {
+    font-size: 12px;
+}
+
+body {
+    position: fixed;
+    /* literally */
+    backdrop-filter: blur(8px);
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    color: white;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local(""),
+    url("assets/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: local(""),
+    url("assets/fonts/Roboto-Bold.ttf");
+}
+
+#app {
+    height: 100vh;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #303030;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #7c7c7c;
+}
